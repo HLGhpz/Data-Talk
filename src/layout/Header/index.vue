@@ -1,83 +1,49 @@
 <template>
-  <n-page-header subtitle="让你的听觉更懂视觉" @back="handleBack">
-    <n-grid :cols="5">
-      <n-gi>
-        <n-statistic label="正片" value="125 集" />
-      </n-gi>
-      <n-gi>
-        <n-statistic label="嘉宾" value="22 位" />
-      </n-gi>
-      <n-gi>
-        <n-statistic label="道歉" value="36 次" />
-      </n-gi>
-      <n-gi>
-        <n-statistic label="话题" value="83 个" />
-      </n-gi>
-      <n-gi>
-        <n-statistic label="参考链接" value="2,346 个" />
-      </n-gi>
-    </n-grid>
-    <template #title>
-      <a
-        href="https://anyway.fm/"
-        style="text-decoration: none; color: inherit"
-      >Anyway.FM</a>
-    </template>
-    <template #header>
-      <n-breadcrumb>
-        <n-breadcrumb-item>播客</n-breadcrumb-item>
-        <n-breadcrumb-item>精选</n-breadcrumb-item>
-        <n-breadcrumb-item>超级精选</n-breadcrumb-item>
-        <n-breadcrumb-item>Anyway.FM</n-breadcrumb-item>
-      </n-breadcrumb>
-    </template>
-    <template #avatar>
-      <n-avatar
-        src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg"
-      />
-    </template>
-    <template #extra>
-      <n-space>
-        <n-button>催更</n-button>
-        <n-dropdown :options="options" placement="bottom-start">
-          <n-button :bordered="false" style="padding: 0 4px">
-            ···
-          </n-button>
-        </n-dropdown>
-      </n-space>
-    </template>
-    <template #footer>
-      截止到 2021 年 4 月 3 日
-    </template>
-  </n-page-header>
+  <n-layout-header bordered>
+    <n-button text @click="router.go(0)">
+      <n-icon size="20" :depth="2"><RefreshOutline /></n-icon>
+    </n-button>
+    <n-breadcrumb>
+      <n-breadcrumb-item>Dashboard</n-breadcrumb-item>
+      <n-breadcrumb-item>Home</n-breadcrumb-item>
+    </n-breadcrumb>
+    <n-space :size="20" align="center" style="line-height: 1">
+      <n-tooltip>
+        <template #trigger>
+          <router-link :to="{ name: '' }">
+            <n-icon size="22" :depth="2"><RefreshOutline /></n-icon>
+          </router-link>
+        </template>
+        Dashboard help
+      </n-tooltip>
+    </n-space>
+  </n-layout-header>
 </template>
 
-<script>
-import { defineComponent } from "vue";
-import { useMessage } from "naive-ui";
+<script setup>
+import { h, computed } from 'vue'
+import { useMessage } from 'naive-ui'
+import { useRouter, RouterLink } from 'vue-router'
+import { RefreshOutline } from '@vicons/ionicons5'
 
-export default defineComponent({
-  setup() {
-    const message = useMessage();
-    return {
-      handleBack() {
-        message.info("[onBack]");
-      },
-      options: [
-        {
-          label: "催更",
-          key: "1"
-        },
-        {
-          label: "催更",
-          key: "2"
-        },
-        {
-          label: "催更",
-          key: "3"
-        }
-      ]
-    };
-  }
-});
+const router = useRouter()
 </script>
+
+<style scoped>
+.n-layout-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 9px 18px;
+}
+
+.n-button {
+  margin-right: 15px;
+}
+
+.n-space {
+  margin-left: auto;
+}
+</style>
