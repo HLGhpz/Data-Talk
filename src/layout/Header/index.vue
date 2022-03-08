@@ -1,18 +1,18 @@
 <template>
   <n-layout-header bordered>
     <n-button text @click="router.go(0)">
-      <n-icon size="20" :depth="2"><RefreshOutline /></n-icon>
+      <icon type="refresh" size="20" :depth="2"></icon>
     </n-button>
     <n-breadcrumb>
-      <n-breadcrumb-item>Dashboard</n-breadcrumb-item>
+      <n-breadcrumb-item>HLG</n-breadcrumb-item>
       <n-breadcrumb-item>Home</n-breadcrumb-item>
     </n-breadcrumb>
     <n-space :size="20" align="center" style="line-height: 1">
       <n-tooltip>
         <template #trigger>
-          <router-link :to="{ name: '' }">
-            <n-icon size="22" :depth="2"><RefreshOutline /></n-icon>
-          </router-link>
+          <n-a href="https://github.com/HLGhpz/Data-Talk" target="_blank">
+            <icon type="github" size="22" :depth="2"></icon>
+          </n-a>
         </template>
         Dashboard help
       </n-tooltip>
@@ -24,7 +24,7 @@
 import { h, computed } from 'vue'
 import { useMessage } from 'naive-ui'
 import { useRouter, RouterLink } from 'vue-router'
-import { RefreshOutline } from '@vicons/ionicons5'
+import { Icon } from '@/components'
 
 const router = useRouter()
 </script>

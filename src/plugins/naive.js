@@ -5,7 +5,9 @@ import {
   NP,
   NText,
   NA,
+  NTag,
   NIcon,
+  NModal,
   NImage,
   NAvatar,
   NButton,
@@ -35,17 +37,21 @@ import {
   NConfigProvider,
   NDialogProvider,
   NMessageProvider,
-  NLoadingBarProvider
+  NLoadingBarProvider,
+  NNotificationProvider,
+  NDataTable
 } from 'naive-ui';
 
-const naive = create({
+export default create({
   components: [
     NH1,
     NH2,
     NP,
     NText,
     NA,
+    NTag,
     NIcon,
+    NModal,
     NImage,
     NAvatar,
     NButton,
@@ -75,10 +81,9 @@ const naive = create({
     NConfigProvider,
     NDialogProvider,
     NMessageProvider,
-    NLoadingBarProvider
+    NLoadingBarProvider,
+    NNotificationProvider,
+    NDataTable
   ],
 })
 
-export function setupNaive(app) {
-  app.use(naive);
-}

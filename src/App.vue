@@ -1,7 +1,7 @@
 <template>
-  <n-message-provider>
-    <router-view />
-  </n-message-provider>
+  <provider>
+    <viewer />
+  </provider>
 </template>
 
 <style>
@@ -16,4 +16,6 @@
 </style>
 
 <script setup>
+import {Provider, Viewer} from './components'
+
 </script>

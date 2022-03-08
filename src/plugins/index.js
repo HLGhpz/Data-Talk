@@ -1,1 +1,1 @@
-export {setupNaive} from '@/plugins/naive'
+export {default as naive } from '@/plugins/naive'

@@ -1,17 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
+import routes from "./routes";
 
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: () => import(/* webpackChunkName: "home" */ "@/layout/index.vue")
-  }
-]
+const history = createWebHistory();
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-})
+const router = createRouter({history, routes});
 
 export default router
 

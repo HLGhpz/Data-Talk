@@ -6,6 +6,7 @@
       <PageContent />
       <PageFooter />
     </n-layout>
+    <FloatBall />
   </n-layout>
 </template>
 
@@ -14,4 +15,5 @@ import { PageContent } from './Content';
 import { PageHeader } from './Header';
 import { PageFooter } from './Footer';
 import { PageSidebar } from './Sidebar';
+import {FloatBall} from './FloatBall';
 </script>
