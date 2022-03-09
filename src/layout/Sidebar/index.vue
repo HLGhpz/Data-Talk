@@ -11,7 +11,7 @@
     @collapse="collapsed = true"
     @expand="collapsed = false"
   >
-    <span class="app-layout-sider__title"> How to use provider </span>
+    <span class="app-layout-sider__title"> HLG DATA </span>
     <n-menu
       :value="activeName"
       :options="layoutOptions"
@@ -24,6 +24,9 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const collapsed = ref(false)
 const activeName = ref('/')
 const layoutOptions = ref([
@@ -32,29 +35,19 @@ const layoutOptions = ref([
 	  key: '/',
 	},
 	{
-	  label: 'Request',
-	  key: '/request',
+	  label: 'Table',
+	  key: '/table',
 	},
-	{
-		label: 'Message',
-		key: '/message',
-	},
-	{
-		label: 'Dialog',
-		key: '/dialog',
-	},
-	{
-		label: 'Notification',
-		key: '/notification',
-	},
-	{
-		label: 'LoadingBar',
-		key: '/loadingBar',
-	},
+  {
+    label: 'TableEdit',
+    key: '/tableEdit',
+  }
 ])
 const handleMenuSelect = (value) => {
   activeName.value = value
-  
+  router.push({
+    path: value
+  })
 }
 </script>
 

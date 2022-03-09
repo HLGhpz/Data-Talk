@@ -36,6 +36,7 @@ let showModal = ref(false)
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 9999;
+  cursor: pointer;
 }
 .n-float-ball-icon {
   position: absolute;

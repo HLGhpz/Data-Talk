@@ -6,7 +6,12 @@ const mainRoutes = [{
   name: 'table',
   path: '/table',
   component: () => import('@/views/Table.vue'),
-}]
+}, {
+  name: 'tableEdit',
+  path: '/tableEdit',
+  component: () => import('@/views/TableEdit.vue'),
+}
+]
 
 const routes = [
   {

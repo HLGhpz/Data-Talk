@@ -13,6 +13,8 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^8.5.0
+  mockjs: ^1.1.0
+  moment: ^2.29.1
   naive-ui: ^2.26.0
   postcss: ^8.4.7
   prettier: ^2.5.1
@@ -26,6 +28,8 @@ dependencies:
   axios: registry.npmmirror.com/axios/0.26.0
   cz-conventional-changelog: registry.npmmirror.com/cz-conventional-changelog/3.3.0
   echarts: registry.npmmirror.com/echarts/5.3.0
+  mockjs: registry.npmmirror.com/mockjs/1.1.0
+  moment: registry.npmmirror.com/moment/2.29.1
   vue: registry.npmmirror.com/vue/3.2.31
   vue-router: registry.npmmirror.com/vue-router/4.0.13_vue@3.2.31
 
@@ -692,6 +696,13 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/color-name/-/color-name-1.1.4.tgz}
     name: color-name
     version: 1.1.4
+
+  registry.npmmirror.com/commander/9.0.0:
+    resolution: {integrity: sha512-JJfP2saEKbQqvW+FI93OYUB4ByV5cizMpFMiiJI8xDbBvQvSkIk0VvQdn1CZ8mqAO8Loq2h0gYTYtDFUZUeERw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/commander/-/commander-9.0.0.tgz}
+    name: commander
+    version: 9.0.0
+    engines: {node: ^12.20.0 || >=14}
+    dev: false
 
   registry.npmmirror.com/commitizen/4.2.4:
     resolution: {integrity: sha512-LlZChbDzg3Ir3O2S7jSo/cgWp5/QwylQVr59K4xayVq8S4/RdKzSyJkghAiZZHfhh5t4pxunUoyeg0ml1q/7aw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/commitizen/-/commitizen-4.2.4.tgz}
@@ -2060,6 +2071,21 @@ packages:
     dependencies:
       minimist: registry.npmmirror.com/minimist/1.2.5
     dev: true
+
+  registry.npmmirror.com/mockjs/1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mockjs/-/mockjs-1.1.0.tgz}
+    name: mockjs
+    version: 1.1.0
+    hasBin: true
+    dependencies:
+      commander: registry.npmmirror.com/commander/9.0.0
+    dev: false
+
+  registry.npmmirror.com/moment/2.29.1:
+    resolution: {integrity: sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/moment/-/moment-2.29.1.tgz}
+    name: moment
+    version: 2.29.1
+    dev: false
 
   registry.npmmirror.com/ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ms/-/ms-2.1.2.tgz}

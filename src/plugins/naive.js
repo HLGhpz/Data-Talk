@@ -39,7 +39,23 @@ import {
   NMessageProvider,
   NLoadingBarProvider,
   NNotificationProvider,
-  NDataTable
+  NDataTable,
+  NRadioButton,
+  NRadioGroup,
+  NFormItem,
+  NSelect,
+  NDatePicker,
+  NSwitch,
+  NCheckbox,
+  NCheckboxGroup,
+  NRadio,
+  NInputNumber,
+  NTimePicker,
+  NSlider,
+  NTransfer,
+  NFormItemGi,
+  NGrid,
+
 } from 'naive-ui';
 
 export default create({
@@ -83,7 +99,22 @@ export default create({
     NMessageProvider,
     NLoadingBarProvider,
     NNotificationProvider,
-    NDataTable
+    NDataTable, 
+    NRadioButton,
+    NRadioGroup,
+    NFormItem,
+    NSelect,
+    NDatePicker,
+    NSwitch,
+    NCheckbox,
+    NCheckboxGroup,
+    NRadio,
+    NInputNumber,
+    NTimePicker,
+    NSlider,
+    NTransfer,
+    NFormItemGi,
+    NGrid,
   ],
 })
 

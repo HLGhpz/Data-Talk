@@ -12,7 +12,23 @@
 <script setup>
 import { ref, onMounted, h } from 'vue'
 import { NTag, NButton, useMessage } from 'naive-ui'
+// import axios from 'axios'
 
+import { Icon } from '@/components'
+
+import { selectInfo, creatInfo, updateInfo, deleteInfo } from '@/api/crud.js'
+import moment from 'moment'
+
+const targetPath = 'target'
+let target = ref('')
+const targetColor = {
+  Project: '#80CBC4',
+  Collect: '#26A69A',
+  Make: '#00897B',
+  Achieve: '#00695C',
+  Pause: '#EE3F4D',
+  Abolish: '#82202B'
+}
 const createColumns = ({ sendMail }) => {
   return [
     {
@@ -20,74 +36,55 @@ const createColumns = ({ sendMail }) => {
       key: 'name'
     },
     {
-      title: 'Age',
-      key: 'age'
+      title: 'Abstract',
+      key: 'abstract'
     },
     {
-      title: 'Address',
-      key: 'address'
+      title: 'UpDateTime',
+      key: 'updateTime'
     },
     {
-      title: 'tag',
+      title: 'Tag',
       key: 'tag',
       render(row) {
-          return h(
-            NTag,
-            {
-              style: {
-                marginRight: '6px'
-              },
-              type: 'info'
+        return h(
+          NTag,
+          {
+            style: {
+              marginRight: '6px',
+              color: targetColor[row.tag]
             },
-            {
-              default: () => row.tag
-            }
-          )
+            round: true
+          },
+          {
+            default: () => row.tag
+          }
+        )
       }
     },
     {
       title: 'Action',
-      key: 'actions',
+      key: 'action',
       render(row) {
         return h(
-          NButton,
+          Icon,
           {
-            size: 'small',
+            size: '25',
+            type: 'settings',
+            style: {
+              cursor: 'pointer'
+            },
             onClick: () => sendMail(row)
           },
-          { default: () => 'Send Email' }
+          {}
         )
       }
     }
   ]
 }
 
-const createData = () => [
-  {
-    key: 0,
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tag: 'nice'
-  },
-  {
-    key: 1,
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tag: 'wow'
-  },
-  {
-    key: 2,
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tag: 'cool'
-  }
-]
-
 const message = useMessage()
-let data = createData()
+let data = ref([])
 let columns = createColumns({
   sendMail(rowData) {
     message.info('send mail to ' + rowData.name)
@@ -96,4 +93,9 @@ let columns = createColumns({
 let pagination = {
   pageSize: 10
 }
+
+onMounted(async () => {
+  let target = await selectInfo(targetPath)
+  data.value = target.data.targetList
+})
 </script>
