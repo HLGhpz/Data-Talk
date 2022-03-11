@@ -15,5 +15,9 @@ export default defineConfig({
       "views": path.resolve(__dirname, "src/views"),
       "assets": path.resolve(__dirname, "src/assets"),
     }
+  },
+  server: {
+    port: 8000,
+    open: true
   }
 })

@@ -6,7 +6,8 @@
       <PageContent />
       <PageFooter />
     </n-layout>
-    <FloatBall />
+    <FloatBall>
+    </FloatBall>
   </n-layout>
 </template>
 
@@ -16,4 +17,9 @@ import { PageHeader } from './Header';
 import { PageFooter } from './Footer';
 import { PageSidebar } from './Sidebar';
 import {FloatBall} from './FloatBall';
+import {TableEdit} from '@/components';
+// import {TableEdit} from '@/components';
+import {reactive} from 'vue'
+
+
 </script>

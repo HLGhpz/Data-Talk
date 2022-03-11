@@ -55,7 +55,7 @@ import {
   NTransfer,
   NFormItemGi,
   NGrid,
-
+  NDivider
 } from 'naive-ui';
 
 export default create({
@@ -115,6 +115,7 @@ export default create({
     NTransfer,
     NFormItemGi,
     NGrid,
+    NDivider
   ],
 })
 

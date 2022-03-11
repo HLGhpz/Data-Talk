@@ -1,17 +1,4 @@
-const mainRoutes = [{
-  name: 'home',
-  path: '/',
-  component: () => import('@/views/Home.vue'),
-}, {
-  name: 'table',
-  path: '/table',
-  component: () => import('@/views/Table.vue'),
-}, {
-  name: 'tableEdit',
-  path: '/tableEdit',
-  component: () => import('@/views/TableEdit.vue'),
-}
-]
+import mainRoutes from "./mainRoutes"
 
 const routes = [
   {

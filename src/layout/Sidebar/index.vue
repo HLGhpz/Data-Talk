@@ -11,7 +11,10 @@
     @collapse="collapsed = true"
     @expand="collapsed = false"
   >
-    <span class="app-layout-sider__title"> HLG DATA </span>
+    <div class="logo">
+      <img src="@/assets/hlg.png" alt="" />
+      <h2 class="title">HLG</h2>
+    </div>
     <n-menu
       :value="activeName"
       :options="layoutOptions"
@@ -24,23 +27,23 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const collapsed = ref(false)
 const activeName = ref('/')
 const layoutOptions = ref([
-	{
-	  label: 'Home',
-	  key: '/',
-	},
-	{
-	  label: 'Table',
-	  key: '/table',
-	},
   {
-    label: 'TableEdit',
-    key: '/tableEdit',
+    label: 'Home',
+    key: '/'
+  },
+  {
+    label: 'Table',
+    key: '/table'
+  },
+  {
+    label: 'Test',
+    key: '/test'
   }
 ])
 const handleMenuSelect = (value) => {
@@ -52,16 +55,20 @@ const handleMenuSelect = (value) => {
 </script>
 
 
-<style scoped>
-.app-layout-sider__title {
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding-left: 20px;
-  height: 28px;
-  color: #333;
-  font-weight: 500;
-  font-size: 20px;
-}
+<style lang="less" scoped>
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    line-height: 64px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    img {
+      width: auto;
+      height: 40px;
+      margin-right: 20px;
+    }
+  }
 </style>

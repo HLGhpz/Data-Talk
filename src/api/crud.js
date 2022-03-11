@@ -1,12 +1,13 @@
 import axios from "axios";
-axios.defaults.baseURL = "./api/"
+axios.defaults.baseURL = "Http://localhost:3000";
 
 export function selectInfo(path) {
   return axios.get(path)
 }
 
 export function creatInfo(path, data) {
-  return axios.post(path, data)
+  console.log(data)
+  // return axios.post(path, data)
 }
 
 export function updateInfo(path, data) {

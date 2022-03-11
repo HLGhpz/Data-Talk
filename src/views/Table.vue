@@ -32,8 +32,8 @@ const targetColor = {
 const createColumns = ({ sendMail }) => {
   return [
     {
-      title: 'Name',
-      key: 'name'
+      title: 'Title',
+      key: 'title'
     },
     {
       title: 'Abstract',

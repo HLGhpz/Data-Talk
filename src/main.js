@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routes'
+import store from './store'
 import { naive } from '@/plugins'
 import './mock/index'
 
@@ -14,4 +15,5 @@ const app = createApp(App)
 // 注册全局常用的 naive-ui 组件
 app.use(naive)
 app.use(router)
+app.use(store)
 app.mount('#app')
