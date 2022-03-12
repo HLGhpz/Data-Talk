@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './routes'
 import store from './store'
 import { naive } from '@/plugins'
-import './mock/index'
+// import './mock/index'
 
 // 通用字体
 import 'vfonts/Lato.css'

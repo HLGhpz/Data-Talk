@@ -48,19 +48,22 @@
 </template>
 
 <script setup>
-import { ref, defineProps } from 'vue'
+import { ref, defineProps, defineEmits } from 'vue'
 import { useMessage } from 'naive-ui'
 import { creatInfo } from '@/api/crud'
 
 const props = defineProps({
   targetInfo: Object
 })
+
+const emits = defineEmits(['updateShowModal'])
+
 let formRef = ref(null)
 let size = ref('medium')
 let model = ref({
-  title: null,
-  abstract: null,
-  tag: null
+  title: props.targetInfo.title,
+  abstract: props.targetInfo.abstract,
+  tag: props.targetInfo.tag
 })
 let generalOptions = [
   'Project',
@@ -93,14 +96,19 @@ let rules = {
 const path = '/info/target'
 
 function submitInfo() {
-  if (props.targetInfo.type === 'add') {
-    // console.log('add', model.value)
-    creatInfo(path, model.value)
-  } else {
-    // createInfo()
-  }
-}
 
+  creatInfo(path, model.value)
+    .then((res) => {
+      if (res.status === 200) {
+        emits('updateShowModal', 'success')
+      } else {
+        emits('updateShowModal', res)
+      }
+    })
+    .catch((err) => {
+      emits('updateShowModal', err)
+    })
+}
 </script>
 
 <style>

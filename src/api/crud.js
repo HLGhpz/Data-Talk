@@ -6,8 +6,7 @@ export function selectInfo(path) {
 }
 
 export function creatInfo(path, data) {
-  console.log(data)
-  // return axios.post(path, data)
+  return axios.post(path, data)
 }
 
 export function updateInfo(path, data) {

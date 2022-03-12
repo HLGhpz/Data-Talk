@@ -23,9 +23,30 @@ import {
   LogoGithub as github,
   AlertCircleOutline as fallback,
   LogoIonitron as ionitron,
+  GlassesOutline as glasses
 } from '@vicons/ionicons5'
 
-const icons = { refresh, dashboard, posts, pages, media, users, comments, themes, plugins, tools, settings, flask, add, help, notifications, github, fallback, ionitron }
+const icons = {
+  refresh,
+  dashboard,
+  posts,
+  pages,
+  media,
+  users,
+  comments,
+  themes,
+  plugins,
+  tools,
+  settings,
+  flask,
+  add,
+  help,
+  notifications,
+  github,
+  fallback,
+  ionitron,
+  glasses
+}
 
 const props = defineProps({
   ...NIcon.props,
