@@ -7,19 +7,36 @@
       :pagination="pagination"
     />
   </n-space>
+  <n-modal v-model:show="showModal" :mask-closable="false" preset="dialog">
+    <template #icon>
+      <icon type="glasses"></icon>
+    </template>
+    <template #header>
+      <div>HLGhpz</div>
+    </template>
+    <table-edit
+      :target-info="targetInfo"
+      @updateShowModal="updateShowModal"
+    ></table-edit>
+  </n-modal>
 </template>
 
 <script setup>
-import { ref, onMounted, h } from 'vue'
+import { ref, onMounted, h, onBeforeUnmount } from 'vue'
 import { NTag, NButton, useMessage } from 'naive-ui'
 // import axios from 'axios'
-
-import { Icon } from '@/components'
-
-import { selectInfo, creatInfo, updateInfo, deleteInfo } from '@/api/crud.js'
+import bus from '@/api/bus'
+import { selectInfo, createInfo, updateInfo, deleteInfo } from '@/api/crud.js'
 import moment from 'moment'
 
-const targetPath = 'target'
+const message = useMessage()
+
+// 导入组件
+import { Icon, TableEdit } from '@/components'
+
+
+// 获取数据
+const targetPath = '/info/target'
 let target = ref('')
 const targetColor = {
   Project: '#80CBC4',
@@ -29,6 +46,8 @@ const targetColor = {
   Pause: '#EE3F4D',
   Abolish: '#82202B'
 }
+// 渲染数据
+let data = ref([])
 const createColumns = ({ sendMail }) => {
   return [
     {
@@ -40,8 +59,8 @@ const createColumns = ({ sendMail }) => {
       key: 'abstract'
     },
     {
-      title: 'UpDateTime',
-      key: 'updateTime'
+      title: 'UpdateTime',
+      key: 'updatedAt'
     },
     {
       title: 'Tag',
@@ -74,7 +93,12 @@ const createColumns = ({ sendMail }) => {
             style: {
               cursor: 'pointer'
             },
-            onClick: () => sendMail(row)
+            onClick: () => {
+              showModal.value = true
+              targetInfo.title = row.title
+              targetInfo.abstract = row.abstract
+              targetInfo.tag = row.tag
+              }
           },
           {}
         )
@@ -83,8 +107,6 @@ const createColumns = ({ sendMail }) => {
   ]
 }
 
-const message = useMessage()
-let data = ref([])
 let columns = createColumns({
   sendMail(rowData) {
     message.info('send mail to ' + rowData.name)
@@ -94,8 +116,41 @@ let pagination = {
   pageSize: 10
 }
 
+// 修改数据
+const showModalRef = ref(false)
+let showModal = showModalRef
+
+const updateShowModal = (v) => {
+  console.log('updateShowModal', v)
+  if (v === 'success') {
+    message.success('提交成功')
+    showModal.value = false
+  } else {
+    message.error('提交失败')
+  }
+}
+
+let targetInfo = {
+  title: '',
+  abstract: '',
+  tag: '',
+  type: 'Update'
+}
+
+// 更新数据
+const updateFlag = async (msg) => {
+  let target = await selectInfo(targetPath)
+  data.value = target.data
+}
+
 onMounted(async () => {
   let target = await selectInfo(targetPath)
-  data.value = target.data.targetList
+  data.value = target.data
+  console.log('onUpdateFlag')
+  bus.on('updateFlag', updateFlag)
+})
+
+onBeforeUnmount(() => {
+  bus.off('updateFlag', updateFlag)
 })
 </script>

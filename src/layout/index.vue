@@ -6,22 +6,16 @@
       <PageContent />
       <PageFooter />
     </n-layout>
-    <table-ball>
-
-    </table-ball>
+    <table-ball />
   </n-layout>
 </template>
 
 <script setup>
-import { PageContent } from './Content';
-import { PageHeader } from './Header';
-import { PageFooter } from './Footer';
-import { PageSidebar } from './Sidebar';
-import {FloatBall} from './FloatBall';
-import {TableBall} from './TableBall';
-import {TableEdit} from '@/components';
+import { PageContent } from './Content'
+import { PageHeader } from './Header'
+import { PageFooter } from './Footer'
+import { PageSidebar } from './Sidebar'
+import { TableBall } from './TableBall'
 // import {TableEdit} from '@/components';
-import {reactive} from 'vue'
-
-
+import { reactive } from 'vue'
 </script>

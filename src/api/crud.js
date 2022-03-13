@@ -5,7 +5,7 @@ export function selectInfo(path) {
   return axios.get(path)
 }
 
-export function creatInfo(path, data) {
+export function createInfo(path, data) {
   return axios.post(path, data)
 }
 

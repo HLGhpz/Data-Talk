@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import { useMessage } from 'naive-ui'
 import { Icon, TableEdit, FloatBall } from '@/components'
 
@@ -27,10 +27,10 @@ const updateShowModal = (v) => {
   console.log('updateShowModal', v)
   if (v === 'success') {
     message.success('提交成功')
+    showModal.value = false
   } else {
     message.error('提交失败')
   }
-  showModal.value = false
 }
 
 const targetInfo = {

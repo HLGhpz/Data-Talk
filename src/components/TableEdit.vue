@@ -48,9 +48,10 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits } from 'vue'
+import { ref } from 'vue'
 import { useMessage } from 'naive-ui'
-import { creatInfo } from '@/api/crud'
+import { createInfo } from '@/api/crud'
+import bus from '@/api/bus'
 
 const props = defineProps({
   targetInfo: Object
@@ -63,7 +64,8 @@ let size = ref('medium')
 let model = ref({
   title: props.targetInfo.title,
   abstract: props.targetInfo.abstract,
-  tag: props.targetInfo.tag
+  tag: props.targetInfo.tag,
+  type: props.targetInfo.type
 })
 let generalOptions = [
   'Project',
@@ -95,19 +97,24 @@ let rules = {
 }
 const path = '/info/target'
 
-function submitInfo() {
-
-  creatInfo(path, model.value)
-    .then((res) => {
-      if (res.status === 200) {
-        emits('updateShowModal', 'success')
-      } else {
-        emits('updateShowModal', res)
-      }
-    })
-    .catch((err) => {
-      emits('updateShowModal', err)
-    })
+async function submitInfo() {
+  console.log(model.value)
+  if (model.value.type === "Add"){
+    console.log('add')
+    // await createInfo(path, model.value)
+  } else if(model.value.type === "Update"){
+    console.log('update')
+    // await updateInfo(path, model.value)
+  }
+  // try {
+  //   let res = await createInfo(path, model.value)
+  //   if (res.status === 200) {
+  //     emits('updateShowModal', 'success')
+  //     bus.emit('updateFlag', 'success')
+  //   }
+  // } catch {
+  //   emits('updateShowModal', 'fail')
+  // }
 }
 </script>
 
