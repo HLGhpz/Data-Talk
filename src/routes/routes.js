@@ -1,4 +1,5 @@
 import mainRoutes from "./mainRoutes"
+// import chartRoutes from "./chartRoutes"
 
 const routes = [
   {

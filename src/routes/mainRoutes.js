@@ -5,11 +5,15 @@ const mainRoutes = [{
 }, {
   name: 'table',
   path: '/table',
-  component: () => import('@/views/Table.vue'),
+  component: () => import('@/views/TableView/Table.vue'),
 }, {
   name: 'test',
   path: '/test',
-  component: () => import('@/views/Test.vue'),
+  component: () => import('@/views/TestView/Test.vue'),
+},{
+  name: 'kaoyan',
+  path: '/chart',
+  component: () => import('@/chartView/kaoyan.vue'),
 }
 ]
 

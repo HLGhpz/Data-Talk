@@ -28,24 +28,12 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import menuLink from './menuLink.js';
 
 const router = useRouter()
 const collapsed = ref(false)
 const activeName = ref('/')
-const layoutOptions = ref([
-  {
-    label: 'Home',
-    key: '/'
-  },
-  {
-    label: 'Table',
-    key: '/table'
-  },
-  {
-    label: 'Test',
-    key: '/test'
-  }
-])
+const layoutOptions = ref(menuLink)
 const handleMenuSelect = (value) => {
   activeName.value = value
   router.push({

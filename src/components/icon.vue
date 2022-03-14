@@ -23,8 +23,13 @@ import {
   LogoGithub as github,
   AlertCircleOutline as fallback,
   LogoIonitron as ionitron,
-  GlassesOutline as glasses
+  GlassesOutline as glasses,
+
 } from '@vicons/ionicons5'
+
+import {
+  ResizeLarge24Regular as resize,
+} from '@vicons/fluent'
 
 const icons = {
   refresh,
@@ -45,7 +50,8 @@ const icons = {
   github,
   fallback,
   ionitron,
-  glasses
+  glasses,
+  resize
 }
 
 const props = defineProps({

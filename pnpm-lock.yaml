@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@vicons/fluent': ^0.12.0
   '@vicons/ionicons5': ^0.12.0
   '@vitejs/plugin-vue': ^2.2.0
   autoprefixer: ^10.4.2
@@ -20,12 +21,14 @@ specifiers:
   naive-ui: ^2.26.0
   postcss: ^8.4.7
   prettier: ^2.5.1
+  screenfull: ^6.0.1
   vfonts: ^0.0.3
   vite: ^2.8.0
   vue: ^3.2.25
   vue-router: ^4.0.13
 
 dependencies:
+  '@vicons/fluent': registry.npmmirror.com/@vicons/fluent/0.12.0
   '@vicons/ionicons5': registry.npmmirror.com/@vicons/ionicons5/0.12.0
   axios: registry.npmmirror.com/axios/0.26.0
   cz-conventional-changelog: registry.npmmirror.com/cz-conventional-changelog/3.3.0
@@ -33,6 +36,7 @@ dependencies:
   mitt: registry.npmmirror.com/mitt/3.0.0
   mockjs: registry.npmmirror.com/mockjs/1.1.0
   moment: registry.npmmirror.com/moment/2.29.1
+  screenfull: registry.npmmirror.com/screenfull/6.0.1
   vue: registry.npmmirror.com/vue/3.2.31
   vue-router: registry.npmmirror.com/vue-router/4.0.13_vue@3.2.31
 
@@ -314,6 +318,12 @@ packages:
     version: 4.0.0
     dev: false
     optional: true
+
+  registry.npmmirror.com/@vicons/fluent/0.12.0:
+    resolution: {integrity: sha512-ATCiqPuiJ6RI5GBlD3BIpZ9Xw4MsCA4RpI5oR6MCti4quS4mX1Gp6N74FCzw7lgOj+80rV4HMKhZTVInwimpVQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vicons/fluent/-/fluent-0.12.0.tgz}
+    name: '@vicons/fluent'
+    version: 0.12.0
+    dev: false
 
   registry.npmmirror.com/@vicons/ionicons5/0.12.0:
     resolution: {integrity: sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vicons/ionicons5/-/ionicons5-0.12.0.tgz}
@@ -2576,6 +2586,13 @@ packages:
     version: 1.2.4
     dev: true
     optional: true
+
+  registry.npmmirror.com/screenfull/6.0.1:
+    resolution: {integrity: sha512-yzQW+j4zMUBQC51xxWaoDYjxOtl8Kn+xvue3p6v/fv2pIi1jH4AldgVLU8TBfFVgH2x3VXlf3+YiA/AYIPlaew==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/screenfull/-/screenfull-6.0.1.tgz}
+    name: screenfull
+    version: 6.0.1
+    engines: {node: ^14.13.1 || >=16.0.0}
+    dev: false
 
   registry.npmmirror.com/seemly/0.3.3:
     resolution: {integrity: sha512-mAyqemz41e9HiZPMXAn7NtTExJgztwco5cdZjrt/iViU/oFeav+Q8K1c93M/tIZZ00QkT65JMr4xXQk7Vv5hWQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/seemly/-/seemly-0.3.3.tgz}
