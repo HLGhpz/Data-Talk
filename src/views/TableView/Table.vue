@@ -29,8 +29,8 @@ import { Icon, TableEdit } from '@/components'
 import { useMessage } from 'naive-ui'
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import bus from '@/api/bus'
-import { selectInfo, createInfo, updateInfo, deleteInfo } from '@/api/crud.js'
-import createColumns from './columnConfig.js'
+import { selectInfo, createInfo, updateInfo, deleteInfo } from '@/api/crud'
+import createColumns from './columnConfig'
 const message = useMessage()
 
 // 获取数据

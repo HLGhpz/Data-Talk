@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // 基本选项
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+
+    // 严格的类型检查
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    // 额外的检查
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+  },
+  "include": ["src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "vite.config.ts"
+, "src/layout/Content/index.js", "src/mock/index.js"  ],
+  "exclude": ["node_modules",
+    "dist",
+    "**/*.js"
+  ]
+}

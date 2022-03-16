@@ -28,7 +28,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import menuLink from './menuLink.js';
+import menuLink from './menuLink';
 
 const router = useRouter()
 const collapsed = ref(false)

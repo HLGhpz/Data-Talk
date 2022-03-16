@@ -1,23 +1,23 @@
 <template>
-  <n-space :size="20" align="center" style="line-height: 1">
+  <!-- <n-space :size="20" align="center" style="line-height: 1">
     <n-tooltip>
       <template #trigger>
           <Icon @click="setScreen" type="resize" size="30" color="#0e7a0d"></Icon>
       </template>
       全屏
     </n-tooltip>
-  </n-space>
+  </n-space> -->
   <div
     class="chart-wrapper"
-    :style="{ height: `${chartHeight}px` }"
+    :style="{ height: `${chartHeight - 43}px` }"
     ref="chartDom"
   ></div>
 </template>
 
 <script setup>
 import * as echarts from 'echarts'
-import { ref, onMounted } from 'vue'
-import { getData } from '@/api/request.js'
+import { ref, onMounted, onBeforeMount } from 'vue'
+import { getData } from '@/api/request'
 import { useMessage } from 'naive-ui'
 import bus from '@/api/bus'
 
@@ -25,15 +25,16 @@ const message = useMessage()
 let chartDom = ref(null)
 let barRaceChart = ref(null)
 let path = './data/01-kaoyan'
-let chartHeight = ref(500)
+let chartHeight = ref(0)
 import screenfull from 'screenfull'
 import { Icon } from '@/components'
 
 function initChart(data) {
   chartHeight.value = window.innerHeight
+  message.info(`${chartHeight.value}Px`)
   barRaceChart = echarts.init(chartDom.value)
   let initOption = {
-    animationDuration: 100000,
+    animationDuration: 10000,
     dataset: {
       source: data
     },
@@ -66,6 +67,11 @@ function setScreen() {
     message.error('当前浏览器不支持全屏')
   }
 }
+
+onBeforeMount(()=>{
+  console.log(`window.innerHeight: ${window.innerHeight}`)
+  chartHeight.value = window.innerHeight
+})
 
 onMounted(async () => {
   let { data } = await getData(path)
